@@ -18,10 +18,10 @@ public class LoginExecuteAction extends Action {
 		String password=request.getParameter("password");
 
 		TeacherDAO dao=new TeacherDAO();
-		Teacher customer=dao.search(login, password);
+		Teacher teacher=dao.search(login, password);
 		
-		if (customer!=null) {
-			session.setAttribute("customer", customer);
+		if (teacher!=null) {
+			session.setAttribute("customer", teacher);
 			return "login-out.jsp";
 		}
 		
