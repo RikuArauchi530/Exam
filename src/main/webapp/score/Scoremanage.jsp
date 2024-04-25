@@ -55,9 +55,7 @@
  <option value="1" selected>1</option>
  <option value="2" selected>2</option>
 </SELECT>
-<form action  ="serch" method="post">
- <input type = "submit" value="検索">
-</form>
+<button type="button" onclick="location.href=''">検査</button>
 
 <%@include file="../footer.html" %>
 
