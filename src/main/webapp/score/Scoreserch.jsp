@@ -1,7 +1,8 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@include file="../header.html" %>
 
-<h2>成績管理</h2>
+<h2>成績参照</h2>
+<div>科目情報
 <th>入学年度</th>
 <SELECT name="entYear">
  <option value="empty" selected>-----</option>
@@ -47,16 +48,12 @@
  <option value="4" selected>科目4</option>
  <option value="5" selected>科目5</option>
 </SELECT>
-<th>回数</th>
-<SELECT name="time">
- <option value="empty" selected>-----</option>
- <option value="1" selected>1</option>
- <option value="2" selected>2</option>
-</SELECT>
 <button type="button" onclick="location.href=''">検査</button>
-
-<%@include file="../footer.html" %>
-
-
-
+</div>
+<p>学生情報
+<div>学生番号
+<input type="text" name="keyword">
+<button type="button" onclick="location.href=''">検査</button>
+</div>
+</p>
 
