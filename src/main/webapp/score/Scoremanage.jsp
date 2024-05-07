@@ -3,6 +3,10 @@
 
 <h2>成績管理</h2>
 <th>入学年度</th>
+<th>クラス</th>
+<th>科目</th>
+<th>回数</th>
+<p>
 <SELECT name="entYear">
  <option value="empty" selected>-----</option>
  <option value="2021" selected>2021</option>
@@ -11,14 +15,12 @@
  <option value="2024" selected>2024</option>
  <option value="2025" selected>2025</option>
 </SELECT>
-<th>クラス</th>
 <SELECT name="classNum">
  <option value="empty" selected>------</option>
  <option value="201" selected>201</option>
  <option value="131" selected>131</option>
  <option value="101" selected>101</option>
 </SELECT>
-<th>科目</th>
 <SELECT name="subject">
  <option value="empty" selected>-----</option>
  <option value="B02" selected>数学</option>
@@ -47,13 +49,13 @@
  <option value="4" selected>科目4</option>
  <option value="5" selected>科目5</option>
 </SELECT>
-<th>回数</th>
 <SELECT name="time">
  <option value="empty" selected>-----</option>
  <option value="1" selected>1</option>
  <option value="2" selected>2</option>
 </SELECT>
 <button type="button" onclick="location.href=''">検査</button>
+</p>
 
 <%@include file="../footer.html" %>
 

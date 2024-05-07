@@ -49,11 +49,16 @@
  <option value="5" selected>科目5</option>
 </SELECT>
 <button type="button" onclick="location.href=''">検査</button>
+<input type="hidden" 
 </div>
+
 <p>学生情報
 <div>学生番号
-<input type="text" name="keyword">
+<label for="number">学生番号を入力してください</label>
+<input type="text" number="number">
 <button type="button" onclick="location.href=''">検査</button>
+<input type="hidden" number="numberid" value="number">
 </div>
 </p>
+<p>科目情報を選択または学生情報を入力して検索ボタンをクリックしてください</p>
 
