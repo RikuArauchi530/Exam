@@ -48,6 +48,6 @@ public class SubjectDAO extends DAO {
     	
     	st.close();
     	con.close();
-    	return line;
+    	return subject;
     }
 }
