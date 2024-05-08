@@ -1,0 +1,24 @@
+<!-- <Context reloadable="true">
+	<Resource
+		name="jdbc/exam"
+		auth="Container"
+		type="javax.sql.DataSource"
+		driveClassName="org.h2.Driver"
+		url="jdbc:h2:tcp://localhost/~/exam"
+		username="sa"
+		password=""
+	/>
+</Context> -->
+
+
+<Context reloadable="true">
+	<Resource
+		name="jdbc/exam"
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="org.h2.Driver"
+		url="jdbc:h2:tcp://localhost/~/book"
+		username="sa"
+		password=""
+	/>
+</Context>

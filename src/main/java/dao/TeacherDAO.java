@@ -16,7 +16,7 @@ public class TeacherDAO extends DAO {
 		
 		PreparedStatement st;
 		st=con.prepareStatement(
-				"select * from customer where login=? and password=?");
+				"select * from teacher where id=? and password=?");
 		st.setString(1, id);
 		st.setString(2, password);
 		ResultSet rs=st.executeQuery();
@@ -26,6 +26,8 @@ public class TeacherDAO extends DAO {
 			teacher=new Teacher();
 			teacher.setId(rs.getString("id"));
 			teacher.setPassword(rs.getString("password"));
+			teacher.setName(rs.getString("name"));
+			teacher.setSchool_cd(rs.getString("school_cd"));
 		}
 		
 		st.close();

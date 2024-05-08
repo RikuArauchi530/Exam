@@ -1,53 +1,37 @@
 package subjectmanager;
+import java.io.IOException;
+import java.util.List;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import dao.SubjectDAO;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-public class SubjectListAction {
+//登録データを一覧表示するクラス
+@WebServlet("/NakamuraListDisplay")
+public class SubjectListAction extends HttpServlet{
+    private static final long serialVersionUID = 1L;
 
-    public static void main(String[] args) {
-        // データベース接続情報
-        String url = "jdbc:h2:tcp://localhost/~/exam";
-        String username = "sa";
-        String password = "";
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
+    }
 
-        // JDBCドライバのロード
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            System.out.println("JDBCドライバをロードできませんでした。");
-            e.printStackTrace();
-            return;
-        }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // データベース接続
-        try (Connection connection = DriverManager.getConnection(url, username, password)) {
-            System.out.println("データベースに接続しました。");
+        //データベース一覧表示
+        SubjectDAO nd = new SubjectDAO();
+        List<Subject> nlist = nd.showAllList();
 
-            // SQLクエリの実行
-            String sql = "SELECT * FROM subject";
-            try (Statement statement = connection.createStatement();
-                 ResultSet resultSet = statement.executeQuery(sql)) {
+        //セッションの開始
+        HttpSession session = request.getSession();
+        //セッションスコープにデータ登録
+        session.setAttribute("nlist",nlist);
 
-                // 結果の処理
-                while (resultSet.next()) {
-                    // レコードからデータを取得
-                    String school_cd = resultSet.getString("school_cd");
-                    String cd = resultSet.getString("cd");
-                    String name = resultSet.getString("name");
-
-                }
-            } catch (SQLException e) {
-                System.out.println("SQLクエリの実行中にエラーが発生しました。");
-                e.printStackTrace();
-            }
-
-        } catch (SQLException e) {
-            System.out.println("データベースに接続できませんでした。");
-            e.printStackTrace();
-        }
+        RequestDispatcher rd = request.getRequestDispatcher("nakamura_list.jsp");
+        rd.forward(request, response);
     }
 }
