@@ -10,8 +10,6 @@ public class TestListSubject implements java.io.Serializable {
 	private String student_name;
 	private String classNum;
 	private Map<Integer,Integer> points;
-	private int key;
-	private int value;
 	
 	public TestListSubject() {
 		
@@ -51,8 +49,6 @@ public class TestListSubject implements java.io.Serializable {
 		this.points = points;
 	}
 	public void putPoint(int key, int value) {
-		this.key = key;
-		this.value = value;
 	}
 	
 	
