@@ -1,5 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@include file="../header.html" %>
+<%@include file="../menu/menu.jsp" %>
 
 <h2>成績参照</h2>
 <div>科目情報
