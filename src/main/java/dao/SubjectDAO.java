@@ -6,19 +6,18 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.School;
 import bean.Subject;
 
 public class SubjectDAO extends DAO {
 
-    public List<Subject> filter(School school) throws Exception {
+    public List<Subject> search(String keyword) throws Exception {
     	List<Subject> list=new ArrayList<>();
     	
     	Connection con=getConnection();
     	
     	PreparedStatement st=con.prepareStatement(
     			"select * from subject where name like ?");
-    	st.setString(1, "%"+school+"%");
+    	st.setString(1, "%"+keyword+"%");
     	ResultSet rs=st.executeQuery();
     	
     	while (rs.next()) {
@@ -37,17 +36,19 @@ public class SubjectDAO extends DAO {
     }
     
     public int insert(Subject subject) throws Exception {
-    	Connection con=getConnection();
-    	
-    	PreparedStatement st=con.prepareStatement(
-    			"insert into subject values(null, ?, ?)");
-    	st.setString(1, subject.getSchool_cd());
-    	st.setString(2, subject.getCd());
-    	st.setString(3, subject.getName());
-    	int line=st.executeUpdate();
-    	
-    	st.close();
-    	con.close();
-    	return subject;
+        Connection con = getConnection();
+        
+        PreparedStatement st = con.prepareStatement(
+                "INSERT INTO subject (school_cd, cd, name) VALUES (?, ?, ?)");
+        st.setString(1, subject.getSchool_cd());
+        st.setString(2, subject.getCd());
+        st.setString(3, subject.getName());
+        
+        int affectedRows = st.executeUpdate();
+        
+        st.close();
+        con.close();
+        
+        return affectedRows;
     }
 }
