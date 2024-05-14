@@ -4,4 +4,7 @@
 
 得点管理システム
 
+<h2>ログイン</h2>
+
+
 <%@include file="../footer.html" %>

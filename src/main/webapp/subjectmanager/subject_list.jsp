@@ -23,6 +23,7 @@
         <td>${subject.school_cd}</td>
         <td>${subject.cd}</td>
         <td>${subject.name}</td>
+        <td><a href="SubjectUpdate.action?code=${subject.cd}&name=${subject.name}">変更</a></td>
       </tr>
     </c:forEach>
   </tbody>
