@@ -6,7 +6,7 @@
 <p>ID<input type="id" name="id" placeholder="半角でご入力ください" required/></p>
 <body>
 
-<p>パスワード<input type="password" id="passwordField" placeholder="20文字以内の半角英数字でご入力ください" required/></p>
+<p>パスワード<input type="password" name="password" id="passwordField" placeholder="20文字以内の半角英数字でご入力ください" required/></p>
 <input type="checkbox" id="showPasswordCheckbox"> パスワードを表示
 
 <script>

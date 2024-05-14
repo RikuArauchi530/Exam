@@ -27,6 +27,7 @@ public class TeacherDAO extends DAO {
 			teacher.setId(rs.getString("id"));
 			teacher.setPassword(rs.getString("password"));
 			teacher.setName(rs.getString("name"));
+			teacher.setSchoolCd(rs.getString("schoolCd"));
 		}
 		
 		st.close();
