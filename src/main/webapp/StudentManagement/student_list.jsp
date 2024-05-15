@@ -1,7 +1,10 @@
 <%@page contentType="text.html ; charset=UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../header.html"%>
 <%@include file="../menu/menu.jsp" %>
-
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.naming.InitialContext" %>
+<%@ page import="javax.sql.DataSource" %>
 
 <h2>学生管理</h2>
 
@@ -28,13 +31,23 @@
 <a href="../StudentManagement/student_create.jsp">新規登録</a>
 
 <table style="border-collapse:separate;border-spacing:10px;">
-<c:forEach var="student" items="${list}">
+	<thead>
 	<tr>
-	<td>入学年度${student.entYear}</td>
-	<td>学生番号${student.no}</td>
-	<td>氏名${student.name}</td>
-	<td>クラス${student.classNum}</td>
+	<th>入学年度</th>
+	<th>学生番号</th>
+	<th>氏名</th>
+	<th>クラス</th>
 	</tr>
+	</thead>
+<c:forEach var="student" items="${list}">
+	<tbody>
+	<tr>
+	<td>${student.entYear}</td>
+	<td>${student.no}</td>
+	<td>${student.name}</td>
+	<td>${student.classNum}</td>
+	</tr>
+	</tbody>
 </c:forEach>
 </table>
 

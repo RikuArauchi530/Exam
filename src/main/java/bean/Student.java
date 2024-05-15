@@ -4,9 +4,9 @@ public class Student implements java.io.Serializable {
 	
 	private String no;
 	private String name;
-	private int entYear;
-	private String classNum;
-	private boolean isAttend;
+	private int ent_Year;
+	private String class_Num;
+	private boolean is_Attend;
 	private School school;
 	
 	public String getNo() {
@@ -16,13 +16,13 @@ public class Student implements java.io.Serializable {
 		return name;
 	}
 	public int getEntYear() {
-		return entYear;
+		return ent_Year;
 	}
 	public String getClassNum() {
-		return classNum;
+		return class_Num;
 	}
 	public boolean getIsAttend() {
-		return isAttend;
+		return is_Attend;
 	}
 	public School getSchool() {
 		return school;
@@ -34,14 +34,14 @@ public class Student implements java.io.Serializable {
 	public void setName(String name) {
 		this.name=name;
 	}
-	public void setEntYear(int entYear) {
-		this.entYear=entYear;
+	public void setEntYear(int ent_Year) {
+		this.ent_Year=ent_Year;
 	}
-	public void setClassNum(String classNum) {
-		this.classNum=classNum;
+	public void setClassNum(String class_Num) {
+		this.class_Num=class_Num;
 	}
-	public void setIsAttend(boolean isAttend) {
-		this.isAttend=isAttend;
+	public void setIsAttend(boolean is_Attend) {
+		this.is_Attend=is_Attend;
 	}
 	public void setSchool(School school) {
 		this.school=school;
