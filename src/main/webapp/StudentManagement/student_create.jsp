@@ -16,6 +16,6 @@
 <input type="button" name-"end" value="登録して終了">
 </form>
 
-<a href="../StudentMansgement/student_list.jsp" >
+<a href="../StudentManagement/student_list.jsp" >戻る</a>
 
 <%@include file="../footer.html" %>

@@ -1,41 +1,52 @@
 package StudentManagement;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import tool.Page;
 
+@WebServlet(urlPatterns= {"/StudentManagement/StudentListAction"})
 public class StudentListAction extends HttpServlet {
-		private static final long serialVersionUID = 1L;
-		
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			List<String> enrollmentYears = getEnrollmentYearsFromDatabase();
-			List<String> classes = getClassesFromDatabase();
+	public void doGet (
+		HttpServletRequest request, HttpServletResponse response 
+	) throws ServletException, IOException {
+		PrintWriter out=response.getWriter();
+		Page.header(out);
+		try {
+			InitialContext ic=new InitialContext();
+			DataSource ds=(DataSource)ic.lookup("java:/comp/env/jdbc/exam");
+			Connection con=ds.getConnection();
 			
-			request.setAttribute("enrollmentYears", enrollmentYears);
-			request.setAttribute("classes", classes);
+			PreparedStatement st=con.prepareStatement("select * from student");
+			ResultSet rs=st.executeQuery();
 			
-			request.getRequestDispatcher("/student_list.jsp").forward(request, response);
+			while (rs.next()) {
+				out.println(rs.getString("no"));
+				out.println(":");
+				out.println(rs.getString("name"));
+				out.println(":");
+				out.println(rs.getInt("entYear"));
+				out.println(":");
+				out.println(rs.getString("classNum"));
+				out.println("<br>");
+			}
+			
+			st.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace(out);
+		}
+		Page.footer(out); 
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-	
-	private List<String> getEnrollmentYearsFromDatabase() {
-		List<String> years = new ArrayList<>();
-		
-		return years;
-	}
-	
-	private List<String> getClassesFromDatabase() {
-		List<String> classes = new ArrayList<>();
-		
-		return classes;
-	}
-	
-    }
+}	

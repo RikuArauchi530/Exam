@@ -10,3 +10,4 @@
 
 <a href="../StudentManagement/student_list.jsp">学生一覧</a>
 
+<%@include file="../footer.html" %>

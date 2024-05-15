@@ -21,10 +21,21 @@
 		<option value="7">201</option>
 	</select>
 	
-<input type="checkbox" value="f3"> 
+<input type="checkbox" value="f3">在学中
 
 <input type="button" value="絞込み">
 
 <a href="../StudentManagement/student_create.jsp">新規登録</a>
+
+<table style="border-collapse:separate;border-spacing:10px;">
+<c:forEach var="student" items="${list}">
+	<tr>
+	<td>入学年度${student.entYear}</td>
+	<td>学生番号${student.no}</td>
+	<td>氏名${student.name}</td>
+	<td>クラス${student.classNum}</td>
+	</tr>
+</c:forEach>
+</table>
 
 <%@include file="../footer.html" %> 
