@@ -8,6 +8,9 @@ public class Test implements java.io.Serializable {
 	private School school;
 	private int no;
 	private int point;
+	private String studentNo;
+	private String subjectCd;
+	private String schoolCd;
 	
 	public Student getStudent() {
 		return student;
@@ -27,6 +30,15 @@ public class Test implements java.io.Serializable {
 	public int getPoint() {
 		return point;
 	}
+	public String getstudentNo() {
+		return studentNo;
+	}
+	public String getsubjectCd() {
+		return subjectCd;
+	}
+	public String getschoolCd() {
+		return schoolCd;
+	}
 	
 	public void setStudent(Student student) {
 		this.student=student;
@@ -45,5 +57,14 @@ public class Test implements java.io.Serializable {
 	}
 	public void setPoint(int point) {
 		this.point=point;
+	}
+	public void setstudentNo(String studentNo) {
+		this.studentNo=studentNo;
+	}
+	public void setsubjectCd(String subjectCd) {
+		this.subjectCd=subjectCd;
+	}
+	public void setschoolCd(String schoolCd) {
+		this.schoolCd=schoolCd;
 	}
 }

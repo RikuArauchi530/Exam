@@ -7,7 +7,7 @@ public class TestListSubject implements java.io.Serializable {
 	
 	private int entYear;
 	private String student_No;
-	private String student_name;
+	private String student_Name;
 	private String classNum;
 	private Map<Integer,Integer> points;
 	
@@ -21,7 +21,7 @@ public class TestListSubject implements java.io.Serializable {
 		return student_No;
 	}
 	public String getStudentName() {
-		return student_name;
+		return student_Name;
 	}
 	public String getClassNum() {
 		return classNum;
@@ -39,8 +39,8 @@ public class TestListSubject implements java.io.Serializable {
 	public void setStudentNo(String student_No) {
 		this.student_No = student_No;
 	}
-	public void setStudentName(String student_name) {
-		this.student_name  = student_name;
+	public void setStudentName(String student_Name) {
+		this.student_Name  = student_Name;
 	}
 	public void setClassNum(String classNum) {
 		this.classNum = classNum;
