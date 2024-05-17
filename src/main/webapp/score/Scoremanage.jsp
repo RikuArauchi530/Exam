@@ -9,21 +9,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <h2>成績管理</h2>
+<table style="border-collapse: separated;border-spacing:10px;">
+<thead>
 <tr>
 <th>入学年度</th>
 <th>クラス</th>
 <th>科目</th>
 <th>回数</th>
 </tr>
+</thead>
+<tbody>
+<c:forEach var="test" items="${list}">
 <tr>
-<td><SELECT>${year}</SELECT></td>
-<td><SELECT>${num}</SELECT></td>
-<td><SELECT>${subject.cd}</SELECT></td>
-<td><SELECT>${num}</SELECT></td>
+<td><SELECT>${test.studentno}</SELECT></td>
+<td><SELECT>${test.classnum}</SELECT></td>
+<td><SELECT>${test.subjectcd}</SELECT></td>
+<td><SELECT>${test.no}</SELECT></td>
 </tr>
-
+</c:forEach>
+</tbody>
+</table>
 <button type="button" onclick="location.href=''">検査</button>
-</p>
 
 <%@include file="../footer.html" %>
 

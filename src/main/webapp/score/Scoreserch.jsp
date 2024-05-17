@@ -3,6 +3,7 @@
 <%@include file="../menu/menu.jsp" %>
 
 <h2>成績参照</h2>
+<table style="border-collapse: separated;border-spacing:10px;">
 <div>科目情報
 <th>入学年度</th>
 <SELECT name="entYear">
@@ -57,7 +58,7 @@
 <div>学生番号
 <label for="number">学生番号を入力してください</label>
 <input type="text" number="number">
-<button type="button" onclick="location.href=''">検査</button>
+<button type="button" onclick="location.href='../score/Scoreserch.jsp'">検査</button>
 <input type="hidden" number="numberid" value="number">
 </div>
 </p>

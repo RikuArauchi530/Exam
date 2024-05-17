@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.TestListSubject;
+import bean.TestListStudent;
 
-public class TestListSubjectDAO extends DAO {
-	/*public List<TestListSubject> postFilter(ResultSet rSet) throws Exception {
-		List<TestListSubject> list=new ArrayList<>();
+public class TestListStudentDAO extends DAO {
+	/*public List<TestListStudent> postFilter(ResultSet rSet) throws Exception {
+		List<TestListStudent> list=new ArrayList<>();
 		
 		Connection con=getConnection();
 		
@@ -21,22 +21,22 @@ public class TestListSubjectDAO extends DAO {
     	
     	
 	
-	public List<TestListSubject> search(String keyword) throws Exception {
-		List<TestListSubject> list=new ArrayList<>();
+	public List<TestListStudent> postfilter(String keyword) throws Exception {
+		List<TestListStudent> list=new ArrayList<>();
 		
 		Connection con=getConnection();
 		
 		PreparedStatement st=con.prepareStatement(
-				"select * from test where subject_cd like ?");
+				"select * from test where student_no like ?");
 		st.setString(1, "%"+keyword+"%");
     	ResultSet rs=st.executeQuery();
 		
     	while (rs.next()) {
-    		TestListSubject s=new TestListSubject();
-    		s.setEntYear(rs.getInt("EntYear"));
-    		s.setStudentNo(rs.getString("Student_No"));
-    		s.setStudentName(rs.getString("Student_Name"));
-    		s.setClassNum(rs.getString("Class_Num"));
+    		TestListStudent s=new TestListStudent();
+    		s.setSubjectName(rs.getString("subjectName"));
+    		s.setSubjectCd(rs.getString("subjectCd"));
+    		s.setNum(rs.getInt("num"));
+    		s.setPoint(rs.getInt("point"));
     		list.add(s);
     	}
 	
